@@ -130,7 +130,7 @@ const Portfolio = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.12 }}
               whileHover={{ y: -15 }}
-              className="group relative rounded-[3rem] overflow-hidden border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-xl hover:shadow-[0_45px_120px_-20px_rgba(91,33,245,0.2)] transition-all duration-700 flex flex-col"
+              className="group relative rounded-[3rem] overflow-hidden border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl hover:shadow-[0_45px_120px_-20px_rgba(91,33,245,0.3)] transition-all duration-700 flex flex-col"
             >
               {/* Image Container with Colorful Overlay */}
               <div className="relative aspect-[16/11] overflow-hidden">
@@ -156,7 +156,7 @@ const Portfolio = () => {
                 
                 {/* Floating Category Badge */}
                 <div className="absolute top-6 left-6 px-4 py-2 rounded-2xl backdrop-blur-xl border border-white/20 shadow-xl"
-                  style={{ background: 'rgba(255,255,255,0.15)' }}>
+                  style={{ background: project.gradient }}>
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">
                     {project.category}
                   </span>
@@ -165,12 +165,14 @@ const Portfolio = () => {
 
               {/* Colorful Content Panel */}
               <div className="p-10 flex-1 flex flex-col relative">
-                <div className="absolute top-0 left-0 w-full h-1" 
+                {/* Individual project border at the top for extra color */}
+                <div className="absolute top-0 left-0 w-full h-2" 
                   style={{ background: project.gradient }} />
 
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: project.color }} />
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:translate-x-1 transition-transform duration-500">
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: project.color }} />
+                  <h3 className="text-2xl font-bold tracking-tight group-hover:translate-x-1 transition-transform duration-500 uppercase"
+                    style={{ color: project.color }}>
                     {project.title}
                   </h3>
                 </div>
@@ -184,7 +186,8 @@ const Portfolio = () => {
                   {project.tech.map((t, i) => (
                     <span 
                       key={i} 
-                      className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest border border-slate-100 dark:border-slate-800 px-4 py-1.5 rounded-xl bg-slate-50/50 dark:bg-slate-800/40 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                      className="text-[10px] font-black text-white uppercase tracking-widest border border-transparent px-4 py-1.5 rounded-xl shadow-lg transition-all hover:scale-105"
+                      style={{ background: project.gradient }}
                     >
                       {t}
                     </span>
@@ -196,14 +199,14 @@ const Portfolio = () => {
                   <a
                     href={project.link}
                     target="_blank"
-                    className="flex items-center gap-3 text-[13px] font-black uppercase tracking-[0.2em] group/launch transition-all"
+                    className="flex items-center gap-3 text-[13px] font-black uppercase tracking-[0.2em] group/launch transition-all hover:scale-110 active:scale-95"
                     style={{ color: project.color }}
                   >
                     Launch Nexus <Rocket size={16} className="group-hover/launch:-translate-y-1 group-hover/launch:translate-x-1 transition-transform" />
                   </a>
-                  <div className="flex gap-4 text-slate-300 dark:text-slate-700">
-                    <Github size={20} className="hover:text-pink-500 transition-colors cursor-pointer" />
-                    <Star size={20} className="hover:text-yellow-500 transition-colors cursor-pointer" />
+                  <div className="flex gap-4" style={{ color: project.color }}>
+                    <Github size={20} className="hover:scale-125 transition-all cursor-pointer" />
+                    <Star size={20} className="hover:scale-125 transition-all cursor-pointer" />
                   </div>
                 </div>
               </div>
