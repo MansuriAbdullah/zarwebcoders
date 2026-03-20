@@ -118,10 +118,9 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="title-hero text-slate-900 dark:text-white mb-4 transition-colors duration-300"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white mb-6 leading-[1.05] tracking-tighter uppercase"
           >
-            Founders{' '}
-            <span className="gradient-text-blue">Verified.</span>
+            FOUNDER <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Nexus.</span>
           </motion.h2>
 
           <motion.p
@@ -129,9 +128,9 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="subtitle-crypto max-w-lg mx-auto text-slate-500 dark:text-slate-400 transition-colors duration-300"
+            className="max-w-xl mx-auto text-slate-500 dark:text-slate-400 text-base sm:text-lg md:text-xl font-medium leading-relaxed"
           >
-            Hear from the visionaries we've helped architect high-fidelity digital futures — verified, authentic, unfiltered.
+            Verified narratives from the high-fidelity engineering frontlines.
           </motion.p>
         </div>
 
@@ -141,7 +140,7 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20"
         >
           {trustBadges.map((b, i) => (
             <div key={i}
@@ -288,7 +287,7 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-3"
+          className="mt-16 sm:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4 sm:px-0"
         >
           {testimonials.map((item, i) => (
             <button

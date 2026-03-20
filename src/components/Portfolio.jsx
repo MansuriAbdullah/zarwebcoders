@@ -104,9 +104,9 @@ const Portfolio = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter leading-none"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter leading-[1.05] uppercase"
           >
-            THE <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">LAB ARCHIVE.</span>
+            THE <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Archive.</span>
           </motion.h2>
 
           <motion.p
@@ -114,14 +114,14 @@ const Portfolio = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-lg font-medium leading-relaxed"
+            className="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-base sm:text-lg md:text-xl font-medium leading-relaxed"
           >
             Explore our curated masterpieces where high-fidelity engineering meets vibrant digital evolution.
           </motion.p>
         </div>
 
         {/* Portfolio Grid with Colorful Highlights */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -164,25 +164,25 @@ const Portfolio = () => {
               </div>
 
               {/* Colorful Content Panel */}
-              <div className="p-10 flex-1 flex flex-col relative">
+              <div className="p-8 sm:p-10 flex-1 flex flex-col relative text-center sm:text-left">
                 {/* Individual project border at the top for extra color */}
                 <div className="absolute top-0 left-0 w-full h-2" 
                   style={{ background: project.gradient }} />
 
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: project.color }} />
-                  <h3 className="text-2xl font-bold tracking-tight group-hover:translate-x-1 transition-transform duration-500 uppercase"
+                <div className="flex items-center justify-center sm:justify-start gap-3 mb-4">
+                  <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: project.color }} />
+                  <h3 className="text-2xl sm:text-3xl font-black tracking-tight group-hover:translate-x-1 transition-transform duration-500 uppercase leading-none"
                     style={{ color: project.color }}>
                     {project.title}
                   </h3>
                 </div>
 
-                <p className="text-[15px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-8 line-clamp-3 transition-colors duration-300">
+                <p className="text-[14px] sm:text-[15px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-8 line-clamp-3 transition-colors duration-300">
                   {project.desc}
                 </p>
 
                 {/* Vivid Tech Pills */}
-                <div className="flex flex-wrap gap-2.5 mb-10">
+                <div className="flex flex-wrap justify-center sm:justify-start gap-2.5 mb-10">
                   {project.tech.map((t, i) => (
                     <span 
                       key={i} 
@@ -195,7 +195,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* Footer Action with Color Theme */}
-                <div className="mt-auto pt-8 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <div className="mt-auto pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0">
                   <a
                     href={project.link}
                     target="_blank"
@@ -204,7 +204,7 @@ const Portfolio = () => {
                   >
                     Launch Nexus <Rocket size={16} className="group-hover/launch:-translate-y-1 group-hover/launch:translate-x-1 transition-transform" />
                   </a>
-                  <div className="flex gap-4" style={{ color: project.color }}>
+                  <div className="flex gap-6" style={{ color: project.color }}>
                     <Github size={20} className="hover:scale-125 transition-all cursor-pointer" />
                     <Star size={20} className="hover:scale-125 transition-all cursor-pointer" />
                   </div>
@@ -220,31 +220,31 @@ const Portfolio = () => {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5 }}
-           className="mt-24 p-1 rounded-[3rem] shadow-2xl relative overflow-hidden"
+           className="mt-20 sm:mt-24 p-1 rounded-[3rem] sm:rounded-[4rem] shadow-2xl relative overflow-hidden"
            style={{ background: 'linear-gradient(135deg, #ff0080, #7928ca, #0070f3)' }}
         >
-          <div className="bg-white dark:bg-slate-900 rounded-[2.9rem] p-10 flex flex-col md:flex-row items-center justify-between gap-10">
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 rounded-[1.5rem] bg-gradient-to-br from-[#ff0080] to-[#7928ca] flex items-center justify-center text-white shadow-xl">
-                 <Zap size={32} />
+          <div className="bg-white dark:bg-slate-900 rounded-[2.9rem] sm:rounded-[3.9rem] p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-[#ff0080] to-[#7928ca] flex items-center justify-center text-white shadow-2xl flex-shrink-0">
+                 <Zap size={36} />
               </div>
               <div>
-                 <p className="text-2xl font-black text-slate-900 dark:text-white tracking-widest leading-none mb-1 uppercase">Instant Scalability</p>
-                 <p className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.2em]">Crafted for the high-end digital future</p>
+                 <p className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-widest leading-none mb-1.5 uppercase">Instant Scaling</p>
+                 <p className="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.2em]">Engineering the high-end digital future</p>
               </div>
             </div>
-            <div className="flex flex-wrap justify-center gap-10">
+            <div className="flex flex-wrap justify-center gap-10 sm:gap-16">
                <div className="text-center">
-                  <p className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter">50+</p>
+                  <p className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tighter leading-none mb-1">50+</p>
                   <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#ff0080]">Mainnet</p>
                </div>
                <div className="text-center">
-                  <p className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter">120K+</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#7928ca]">Users</p>
+                  <p className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tighter leading-none mb-1">120K+</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#7928ca]">Impact</p>
                </div>
                <div className="text-center">
-                  <p className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter">$2.5B</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0070f3]">Impact</p>
+                  <p className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tighter leading-none mb-1">$2.5B</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0070f3]">TVL Secured</p>
                </div>
             </div>
           </div>

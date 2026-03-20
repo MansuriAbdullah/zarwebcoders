@@ -84,9 +84,9 @@ const Process = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-7xl font-black text-slate-900 dark:text-white mb-6 uppercase tracking-tighter"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white mb-6 leading-[1.05] tracking-tighter uppercase"
           >
-            HOW WE <span className="bg-gradient-to-r from-[#0070f3] via-[#7928ca] to-[#ff0080] bg-clip-text text-transparent">DELIVER.</span>
+            HOW WE <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">DELIVER.</span>
           </motion.h2>
 
           <motion.p

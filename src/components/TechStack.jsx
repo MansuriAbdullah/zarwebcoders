@@ -52,7 +52,7 @@ const TechStack = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl font-black mb-6 tracking-tight leading-none uppercase"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tighter leading-[1.05] uppercase"
           >
             <span className="text-slate-900 dark:text-white">World-Class</span> <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Power Stack.</span>
@@ -145,18 +145,19 @@ const TechStack = () => {
       </div>
 
       {/* Pillars Section with Color Accent */}
-      <div className="max-w-[1600px] mx-auto px-4 mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-[1600px] mx-auto px-6 mt-24 lg:mt-32 grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
         {[
           { icon: Globe2, label: "Global Edge", color: "#ff0080" },
           { icon: ShieldAlert, label: "Hardened Auth", color: "#7928ca" },
           { icon: Workflow, label: "High-Flow Logic", color: "#0070f3" },
           { icon: Binary, label: "Consensus Layer", color: "#00dfd8" }
         ].map((item, i) => (
-          <div key={i} className="flex flex-col items-center gap-3">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-slate-50 dark:bg-slate-800 transition-colors shadow-sm">
-              <item.icon size={20} style={{ color: item.color }} />
+          <div key={i} className="flex flex-col items-center gap-4 group transition-transform hover:scale-110">
+            <div className="w-12 h-12 rounded-[1.25rem] flex items-center justify-center bg-slate-50 dark:bg-slate-800 transition-colors shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity" style={{ background: item.color }} />
+              <item.icon size={22} style={{ color: item.color }} />
             </div>
-            <span className="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-[0.3em]">{item.label}</span>
+            <span className="text-[10px] sm:text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-[0.3em] text-center">{item.label}</span>
           </div>
         ))}
       </div>

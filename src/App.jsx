@@ -15,9 +15,9 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div style={{ minHeight: '100vh', color: '#0f0a2e' }}>
+    <div className="min-h-screen bg-white dark:bg-[#0f0a2e] text-slate-900 dark:text-white transition-colors duration-500">
       <Navbar />
-      <main className="pt-[100px]">
+      <main className="pt-[70px] sm:pt-[80px]">
         {/* Hero - vibrant gradient */}
         <Hero />
 

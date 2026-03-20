@@ -50,21 +50,21 @@ const Navbar = () => {
         : 'bg-white/85 dark:bg-[#0f0a2e]/85 backdrop-blur-2xl py-3 border-transparent dark:border-transparent'
         }`}
     >
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-16 sm:h-20">
 
           <div className="flex items-center cursor-pointer group">
-            <div className="w-36 h-16 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+            <div className="w-28 sm:w-36 h-12 sm:h-16 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
               <img src="/assets/Screenshot_2026-03-14_160958-removebg-preview.png" alt="ZarWebCoders Logo" className="w-full h-full object-contain" />
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="relative text-[15px] font-semibold text-slate-700 dark:text-slate-300 transition-all duration-300 tracking-tight group flex items-center gap-1"
+                className="relative text-[14px] xl:text-[15px] font-semibold text-slate-700 dark:text-slate-300 transition-all duration-300 tracking-tight group flex items-center gap-1"
                 onMouseEnter={e => e.currentTarget.style.color = '#5b21f5'}
                 onMouseLeave={e => e.currentTarget.style.color = ''}
               >
@@ -78,24 +78,25 @@ const Navbar = () => {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             <button 
               onClick={toggleDarkMode} 
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              className="p-2 sm:p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shadow-sm"
               aria-label="Toggle Dark Mode"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkMode ? <Sun size={18} className="sm:w-[20px] sm:h-[20px]" /> : <Moon size={18} className="sm:w-[20px] sm:h-[20px]" />}
             </button>
-            <button className="btn-crypto-primary hidden sm:block">
+            
+            <button className="btn-crypto-primary hidden lg:flex">
               Get Started
             </button>
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-slate-800 dark:text-white transition-colors"
+              className="lg:hidden p-2 rounded-xl text-slate-800 dark:text-white bg-slate-50 dark:bg-slate-800 transition-colors shadow-sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -105,28 +106,47 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 top-[68px] p-8 z-40 lg:hidden overflow-y-auto shadow-2xl bg-white dark:bg-[#0f0a2e] transition-colors duration-500"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 top-0 left-0 w-full h-full p-8 z-[60] lg:hidden overflow-y-auto bg-white dark:bg-[#0f0a2e] transition-colors duration-500"
           >
-            <div className="flex flex-col gap-8">
-              {navLinks.map((link) => (
-                <a
+            <div className="flex items-center justify-between mb-12">
+              <div className="w-28 h-12 overflow-hidden">
+                <img src="/assets/Screenshot_2026-03-14_160958-removebg-preview.png" alt="Logo" className="w-full h-full object-contain" />
+              </div>
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-6 items-center">
+              {navLinks.map((link, index) => (
+                <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl font-bold text-slate-800 dark:text-slate-200 tracking-tighter transition-colors"
-                  onMouseEnter={e => e.currentTarget.style.color = '#5b21f5'}
-                  onMouseLeave={e => e.currentTarget.style.color = ''}
+                  className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter transition-colors flex items-center justify-between group w-full px-4"
                 >
-                  {link.name}
-                </a>
+                  <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">{link.name}</span>
+                  <ArrowRight size={24} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-purple-600" />
+                </motion.a>
               ))}
-              <div className="h-[2px] rounded-full my-4" style={{ background: 'linear-gradient(90deg, #5b21f5, #ec4899, #06b6d4)' }} />
-              <button className="w-full btn-crypto-primary">
-                Get Started
-              </button>
+              
+              <div className="h-px w-full bg-slate-100 dark:bg-slate-800 my-6" />
+              
+              <motion.button 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="w-full py-5 bg-gradient-to-r from-[#5b21f5] to-[#ec4899] text-white rounded-[2rem] font-black text-lg uppercase tracking-widest shadow-2xl"
+              >
+                Launch Lab
+              </motion.button>
             </div>
           </motion.div>
         )}

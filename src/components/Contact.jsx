@@ -34,8 +34,8 @@ const Contact = () => {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 dark:opacity-5 pointer-events-none" style={{ background: 'radial-gradient(circle, #5b21f5, #ec4899)' }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] opacity-10 dark:opacity-5 pointer-events-none" style={{ background: 'radial-gradient(circle, #06b6d4, #10b981)' }} />
 
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
 
           {/* Info Side */}
           <motion.div
@@ -43,41 +43,42 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[11px] font-bold mb-6 uppercase tracking-[0.3em] transition-all"
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-black mb-6 uppercase tracking-[0.3em] transition-all shadow-lg"
               style={{ 
                 background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #5b21f5, #ec4899) border-box',
-                border: '1.5px solid transparent', 
+                border: '2px solid transparent', 
                 color: '#5b21f5' 
               }}>
               <Zap size={11} className="animate-pulse" fill="currentColor" /> Direct Nexus Line
             </div>
 
-            <h2 className="title-hero text-slate-900 dark:text-white mb-6 leading-[1.1] transition-colors duration-300">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white mb-8 leading-[1.05] tracking-tighter uppercase">
               Architect Your <br />
               <span className="gradient-text-blue">Digital Legacy.</span>
             </h2>
 
-            <p className="text-slate-500 dark:text-slate-400 mb-12 max-w-xl font-medium leading-relaxed text-lg transition-colors duration-300">
+            <p className="text-slate-500 dark:text-slate-400 mb-12 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed text-base sm:text-lg transition-colors duration-300">
               Our engineering lab is ready to transform your institutional vision into a high-performance, decentralized reality. Let's build the future together.
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-8 max-w-lg mx-auto lg:mx-0">
               {contactItems.map((item, i) => (
                 <motion.div
-                  key={i}
-                  whileHover={{ x: 8 }}
-                  className="flex items-center gap-6 group cursor-pointer"
+                   key={i}
+                   whileHover={{ x: index => (window.innerWidth >= 1024 ? 8 : 0) }}
+                   className="flex flex-col sm:flex-row items-center lg:items-center gap-5 sm:gap-6 group cursor-pointer"
                 >
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-xl flex-shrink-0"
-                    style={{ background: item.gradient, boxShadow: `0 8px 24px ${item.shadow}` }}>
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-2xl flex-shrink-0"
+                    style={{ background: item.gradient, boxShadow: `0 12px 30px ${item.shadow}` }}>
                     {item.icon}
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] mb-1">
+                  <div className="min-w-0 text-center sm:text-left">
+                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] mb-1">
                       {item.label}
                     </p>
-                    <p className="text-xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors truncate">
+                    <p className="text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors truncate uppercase leading-none">
                       {item.value}
                     </p>
                   </div>
@@ -86,14 +87,18 @@ const Contact = () => {
             </div>
 
             {/* Trust Badges Mini */}
-            <div className="mt-16 pt-10 border-t border-slate-100 dark:border-slate-800 flex gap-10 opacity-70">
-              <div className="flex items-center gap-2">
-                <ShieldCheck size={16} className="text-purple-500" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Secure Protocol</span>
+            <div className="mt-16 pt-10 border-t border-slate-100 dark:border-slate-800 flex flex-wrap justify-center lg:justify-start gap-8 sm:gap-12 opacity-60">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
+                   <ShieldCheck size={16} className="text-purple-500" />
+                </div>
+                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">Secure Protocol</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Globe size={16} className="text-purple-500" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Global Node Base</span>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
+                   <Globe size={16} className="text-purple-500" />
+                </div>
+                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">Global Node Base</span>
               </div>
             </div>
           </motion.div>

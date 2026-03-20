@@ -129,14 +129,13 @@ const Careers = () => {
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="title-hero text-slate-900 dark:text-white mb-4 transition-colors duration-300"
+            transition={{ delay: 0.1 }}
+            className="text-4xl sm:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter uppercase leading-[1.05]"
           >
-            Architect The{' '}
-            <span className="gradient-text-blue">Next Epoch.</span>
+            Digital <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Legion.</span>
           </motion.h2>
 
           <motion.p
@@ -144,9 +143,9 @@ const Careers = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="subtitle-crypto max-w-xl mx-auto text-slate-500 dark:text-slate-400 transition-colors duration-300"
+            className="max-w-xl mx-auto text-slate-500 dark:text-slate-400 text-base sm:text-lg md:text-xl font-medium leading-relaxed transition-colors duration-300"
           >
-            We're looking for visionary engineers, designers, and builders to shape the decentralized future from anywhere on the planet.
+            Forge the backbone of the decentralized global state machine from anywhere on Earth.
           </motion.p>
         </div>
 

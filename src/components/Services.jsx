@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Globe, Layers, Smartphone, Shield, Zap, ArrowRight, Cpu, 
+import {
+  Globe, Layers, Smartphone, Shield, Zap, ArrowRight, Cpu,
   Database, Code, Rocket, Wallet, LineChart, ChevronRight, Activity,
   Lock, RefreshCcw, Box, FastForward, Sparkles, Hexagon
 } from 'lucide-react';
@@ -79,7 +79,7 @@ const metrics = [
 const Services = () => {
   return (
     <section id="services" className="relative overflow-hidden py-32 bg-white dark:bg-[#0c0825] transition-colors duration-500">
-      
+
       {/* Background Colorful Mesh */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-600/10 blur-[150px] rounded-full animate-pulse" />
@@ -109,9 +109,9 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-7xl font-black text-slate-900 dark:text-white mb-6 leading-none tracking-tighter"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white mb-6 leading-[1.05] tracking-tighter uppercase"
           >
-            ROBOTIC <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent uppercase">Web3 Solutions.</span>
+            ROBOTIC <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Nexus.</span>
           </motion.h2>
 
           <motion.p
@@ -119,14 +119,14 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-lg font-medium leading-relaxed"
+            className="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-base sm:text-lg md:text-xl font-medium leading-relaxed"
           >
-            We architect institutional-grade blockchain ecosystems powered by vivid AI engines and high-fidelity automation.
+            Institutional-grade blockchain ecosystems powered by high-fidelity AI engines and vibrant robotic automation.
           </motion.p>
         </div>
 
         {/* Services Grid with Colorful Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -135,16 +135,16 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -12, scale: 1.02 }}
-              className="group relative rounded-[3rem] p-10 overflow-hidden border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-xl hover:shadow-[0_45px_120px_-20px_rgba(91,33,245,0.2)] transition-all duration-700"
+              className="group relative rounded-[3rem] p-8 sm:p-12 overflow-hidden border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-xl hover:shadow-[0_45px_120px_-20px_rgba(91,33,245,0.2)] transition-all duration-700 flex flex-col"
             >
               {/* Vibrant Hover Aura */}
-              <div 
+              <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"
                 style={{ background: service.gradient }}
               />
 
               {/* Colorful Icon Panel */}
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl relative z-10"
                 style={{ background: service.gradient, boxShadow: `0 15px 35px -5px ${service.shadow}` }}
               >
@@ -177,7 +177,7 @@ const Services = () => {
 
               {/* Decorative Hexagon */}
               <div className="absolute -bottom-6 -right-6 text-slate-50 dark:text-slate-800/30 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 rotate-12">
-                 <Hexagon size={180} />
+                <Hexagon size={180} />
               </div>
             </motion.div>
           ))}
@@ -185,23 +185,23 @@ const Services = () => {
 
         {/* Performance Metrics Row */}
         <motion.div
-           initial={{ opacity: 0, scale: 0.95 }}
-           whileInView={{ opacity: 1, scale: 1 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.8 }}
-           className="mt-20 p-8 rounded-[3rem] border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 flex flex-wrap justify-center gap-8 md:gap-16"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-20 p-8 rounded-[3rem] border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 flex flex-wrap justify-center gap-8 md:gap-16"
         >
-           {metrics.map((m, i) => (
-             <div key={i} className="flex items-center gap-4 transition-transform hover:scale-105">
-               <div className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-lg" style={{ color: m.color }}>
-                 <m.icon size={22} />
-               </div>
-               <div>
-                 <p className="text-base font-black text-slate-900 dark:text-white leading-none uppercase tracking-tighter">{m.label}</p>
-                 <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Efficiency</span>
-               </div>
-             </div>
-           ))}
+          {metrics.map((m, i) => (
+            <div key={i} className="flex items-center gap-4 transition-transform hover:scale-105">
+              <div className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-lg" style={{ color: m.color }}>
+                <m.icon size={22} />
+              </div>
+              <div>
+                <p className="text-base font-black text-slate-900 dark:text-white leading-none uppercase tracking-tighter">{m.label}</p>
+                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Efficiency</span>
+              </div>
+            </div>
+          ))}
         </motion.div>
 
       </div>
