@@ -20,7 +20,7 @@ const Footer = () => {
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 relative z-10">
 
-        {/* ── High-Impact CTA Banner ── */}
+        {/* CTA Banner Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* ── Main Links ── */}
+        {/* Main Links Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
           
           {/* Brand Info */}
@@ -111,7 +111,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links */}
+          {/* Nav Links */}
           <div className="lg:col-span-2">
             <h4 className="text-[11px] font-black mb-6 uppercase tracking-[0.3em] text-slate-900 dark:text-white transition-colors duration-300">
               Ecosystem
@@ -179,7 +179,7 @@ const Footer = () => {
         </div>
 
       </div>
-    </section>
+    </footer>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ExternalLink, Github, Layers, ShieldCheck, Zap, Globe, Cpu } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, Github, Layers, ShieldCheck, Zap, Globe, Cpu, Star, Rocket, Code, Hexagon } from 'lucide-react';
 
 const projects = [
   {
@@ -11,8 +11,8 @@ const projects = [
     link: "https://gigdial.com/",
     tech: ["React", "Node.js", "Express"],
     color: "#5b21f5",
-    gradient: "linear-gradient(135deg, #5b21f5, #a855f7)",
-    shadow: "rgba(91,33,245,0.2)"
+    gradient: "linear-gradient(135deg, #5b21f5, #a855f7, #ec4899)",
+    shadow: "rgba(91,33,245,0.4)"
   },
   {
     title: "CryptoSuggest AI",
@@ -22,8 +22,8 @@ const projects = [
     link: "https://cryptosuggest-tau.vercel.app/",
     tech: ["Python", "React", "AI/ML"],
     color: "#ec4899",
-    gradient: "linear-gradient(135deg, #ec4899, #f43f5e)",
-    shadow: "rgba(236,72,153,0.2)"
+    gradient: "linear-gradient(135deg, #ec4899, #f43f5e, #f97316)",
+    shadow: "rgba(236,72,153,0.4)"
   },
   {
     title: "EVault Protocol",
@@ -33,8 +33,8 @@ const projects = [
     link: "https://evault-one.vercel.app/",
     tech: ["IPFS", "Solidity", "Tailwind"],
     color: "#0891b2",
-    gradient: "linear-gradient(135deg, #0891b2, #06d6a4)",
-    shadow: "rgba(8,145,178,0.2)"
+    gradient: "linear-gradient(135deg, #0891b2, #06d6a4, #10b981)",
+    shadow: "rgba(8,145,178,0.4)"
   },
   {
     title: "ShagunPro SaaS",
@@ -44,8 +44,8 @@ const projects = [
     link: "https://shagunpro.com/",
     tech: ["Next.js", "Firebase", "Stripe"],
     color: "#10b981",
-    gradient: "linear-gradient(135deg, #10b981, #06d6a0)",
-    shadow: "rgba(16,185,129,0.2)"
+    gradient: "linear-gradient(135deg, #10b981, #06d6a0, #0891b2)",
+    shadow: "rgba(16,185,129,0.4)"
   },
   {
     title: "IVAMAX Omega",
@@ -55,8 +55,8 @@ const projects = [
     link: "https://ivamax-omega.vercel.app/",
     tech: ["Solidity", "MERN", "Web3.js"],
     color: "#7c3aed",
-    gradient: "linear-gradient(135deg, #7c3aed, #ec4899)",
-    shadow: "rgba(124,58,237,0.2)"
+    gradient: "linear-gradient(135deg, #7c3aed, #ec4899, #f97316)",
+    shadow: "rgba(124,58,237,0.4)"
   },
   {
     title: "REXTOKEN Core",
@@ -66,34 +66,37 @@ const projects = [
     link: "https://www.rextoken.in/",
     tech: ["Ethers.js", "Solidity", "Node.js"],
     color: "#f97316",
-    gradient: "linear-gradient(135deg, #f97316, #facc15)",
-    shadow: "rgba(249,115,22,0.2)"
+    gradient: "linear-gradient(135deg, #f97316, #facc15, #10b981)",
+    shadow: "rgba(249,115,22,0.4)"
   }
 ];
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="relative overflow-hidden py-24 bg-white dark:bg-[#0f0a2e] transition-colors duration-500">
+    <section id="portfolio" className="relative overflow-hidden py-32 bg-white dark:bg-[#0c0825] transition-colors duration-500">
       
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-100 dark:via-slate-800 to-transparent pointer-events-none" />
+      {/* Background Colorful Aura */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-600/10 blur-[150px] rounded-full animate-pulse pointer-events-none" />
+      <div className="absolute bottom-[-200px] left-[-200px] w-[800px] h-[800px] bg-cyan-600/10 blur-[150px] rounded-full animate-pulse-slow pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+        style={{ backgroundImage: 'radial-gradient(#5b21f5 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 relative z-10">
         
-        {/* Header */}
-        <div className="text-center mb-16">
+        {/* Colorful Title Area */}
+        <div className="text-center mb-24 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-5"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13px] font-black uppercase tracking-[0.3em] mb-8 shadow-2xl transition-all"
             style={{
-              background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #5b21f5, #0891b2) border-box',
-              border: '1.5px solid transparent',
-              color: '#5b21f5',
+              background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #ff0080, #7928ca, #0070f3) border-box',
+              border: '2.5px solid transparent',
+              color: '#7928ca'
             }}
           >
-            <ShieldCheck size={11} className="animate-pulse" /> Digital Architecture Showcase
+            <Hexagon size={16} className="text-pink-500 animate-spin-slow" /> Engineering Masterpieces
           </motion.div>
 
           <motion.h2
@@ -101,9 +104,9 @@ const Portfolio = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="title-hero text-slate-900 dark:text-white mb-4 transition-colors duration-300"
+            className="text-4xl sm:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter leading-none"
           >
-            The Engineering <span className="gradient-text-blue">Archive.</span>
+            THE <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">LAB ARCHIVE.</span>
           </motion.h2>
 
           <motion.p
@@ -111,85 +114,96 @@ const Portfolio = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="subtitle-crypto max-w-2xl mx-auto text-slate-500 dark:text-slate-400 transition-colors duration-300"
+            className="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-lg font-medium leading-relaxed"
           >
-            Explore our curated selection of high-performance protocols, immersive dApps, and institutional-grade digital ecosystems.
+            Explore our curated masterpieces where high-fidelity engineering meets vibrant digital evolution.
           </motion.p>
         </div>
 
-        {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Portfolio Grid with Colorful Highlights */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group relative rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col"
+              transition={{ delay: index * 0.12 }}
+              whileHover={{ y: -15 }}
+              className="group relative rounded-[3rem] overflow-hidden border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-xl hover:shadow-[0_45px_120px_-20px_rgba(91,33,245,0.2)] transition-all duration-700 flex flex-col"
             >
-              {/* Image Container */}
-              <div className="relative aspect-[16/10] overflow-hidden">
+              {/* Image Container with Colorful Overlay */}
+              <div className="relative aspect-[16/11] overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-[1s] group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center justify-center backdrop-blur-sm"
+                  style={{ background: `linear-gradient(rgba(0,0,0,0), ${project.shadow})` }}
+                >
                   <motion.a
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    whileTap={{ scale: 0.9 }}
                     href={project.link}
                     target="_blank"
-                    className="w-16 h-16 rounded-full bg-white text-slate-900 flex items-center justify-center shadow-2xl"
+                    className="w-20 h-20 rounded-full bg-white text-slate-900 flex items-center justify-center shadow-2xl relative z-20 group/btn"
                   >
-                    <ExternalLink size={24} />
+                    <ArrowUpRight size={28} className="group-hover/btn:rotate-45 transition-transform" />
                   </motion.a>
                 </div>
                 
-                {/* Floating Badge */}
-                <div className="absolute top-5 left-5 px-3 py-1.5 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-white/20 dark:border-slate-700/50 shadow-lg">
-                  <span className="text-[9px] font-black uppercase tracking-widest text-slate-800 dark:text-white">
+                {/* Floating Category Badge */}
+                <div className="absolute top-6 left-6 px-4 py-2 rounded-2xl backdrop-blur-xl border border-white/20 shadow-xl"
+                  style={{ background: 'rgba(255,255,255,0.15)' }}>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">
                     {project.category}
                   </span>
                 </div>
               </div>
 
-              {/* Content Panel */}
-              <div className="p-8 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-purple-600 transition-colors uppercase duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-[14px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-6 line-clamp-2 transition-colors duration-300">
+              {/* Colorful Content Panel */}
+              <div className="p-10 flex-1 flex flex-col relative">
+                <div className="absolute top-0 left-0 w-full h-1" 
+                  style={{ background: project.gradient }} />
+
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: project.color }} />
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:translate-x-1 transition-transform duration-500">
+                    {project.title}
+                  </h3>
+                </div>
+
+                <p className="text-[15px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-8 line-clamp-3 transition-colors duration-300">
                   {project.desc}
                 </p>
 
-                {/* Tech Pills */}
-                <div className="flex flex-wrap gap-2 mb-8">
+                {/* Vivid Tech Pills */}
+                <div className="flex flex-wrap gap-2.5 mb-10">
                   {project.tech.map((t, i) => (
                     <span 
                       key={i} 
-                      className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest border border-slate-100 dark:border-slate-800 px-3 py-1 rounded-lg bg-slate-50/50 dark:bg-slate-800/40"
+                      className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest border border-slate-100 dark:border-slate-800 px-4 py-1.5 rounded-xl bg-slate-50/50 dark:bg-slate-800/40 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                {/* Footer Action */}
-                <div className="mt-auto pt-6 border-t border-slate-50 dark:border-slate-800/60 flex items-center justify-between">
+                {/* Footer Action with Color Theme */}
+                <div className="mt-auto pt-8 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <a
                     href={project.link}
                     target="_blank"
-                    className="flex items-center gap-2 text-[12px] font-black uppercase tracking-[0.2em] transition-all"
+                    className="flex items-center gap-3 text-[13px] font-black uppercase tracking-[0.2em] group/launch transition-all"
                     style={{ color: project.color }}
                   >
-                    Launch Node <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    Launch Nexus <Rocket size={16} className="group-hover/launch:-translate-y-1 group-hover/launch:translate-x-1 transition-transform" />
                   </a>
-                  <div className="flex gap-3 text-slate-300 dark:text-slate-700">
-                    <Github size={16} className="hover:text-purple-500 transition-colors cursor-pointer" />
-                    <Layers size={16} className="hover:text-purple-500 transition-colors cursor-pointer" />
+                  <div className="flex gap-4 text-slate-300 dark:text-slate-700">
+                    <Github size={20} className="hover:text-pink-500 transition-colors cursor-pointer" />
+                    <Star size={20} className="hover:text-yellow-500 transition-colors cursor-pointer" />
                   </div>
                 </div>
               </div>
@@ -197,19 +211,42 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Bottom Metrics */}
-        <div className="mt-20 flex flex-wrap justify-between items-center gap-8 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700">
-          {[
-            { icon: Zap, label: "50+ Mainnet Launches" },
-            { icon: Globe, label: "Global Edge Nodes" },
-            { icon: Cpu, label: "Quantum Audit Ready" }
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-3">
-              <item.icon size={20} className="text-purple-600" />
-              <span className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-600 dark:text-slate-400">{item.label}</span>
+        {/* Colorful Bottom Summary Banner */}
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ delay: 0.5 }}
+           className="mt-24 p-1 rounded-[3rem] shadow-2xl relative overflow-hidden"
+           style={{ background: 'linear-gradient(135deg, #ff0080, #7928ca, #0070f3)' }}
+        >
+          <div className="bg-white dark:bg-slate-900 rounded-[2.9rem] p-10 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div className="flex items-center gap-6">
+              <div className="w-16 h-16 rounded-[1.5rem] bg-gradient-to-br from-[#ff0080] to-[#7928ca] flex items-center justify-center text-white shadow-xl">
+                 <Zap size={32} />
+              </div>
+              <div>
+                 <p className="text-2xl font-black text-slate-900 dark:text-white tracking-widest leading-none mb-1 uppercase">Instant Scalability</p>
+                 <p className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.2em]">Crafted for the high-end digital future</p>
+              </div>
             </div>
-          ))}
-        </div>
+            <div className="flex flex-wrap justify-center gap-10">
+               <div className="text-center">
+                  <p className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter">50+</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#ff0080]">Mainnet</p>
+               </div>
+               <div className="text-center">
+                  <p className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter">120K+</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#7928ca]">Users</p>
+               </div>
+               <div className="text-center">
+                  <p className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter">$2.5B</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0070f3]">Impact</p>
+               </div>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

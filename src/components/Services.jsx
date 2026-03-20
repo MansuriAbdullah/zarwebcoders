@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Globe, Layers, Smartphone, Shield, Zap, ArrowRight, Service, Cpu, 
+  Globe, Layers, Smartphone, Shield, Zap, ArrowRight, Cpu, 
   Database, Code, Rocket, Wallet, LineChart, ChevronRight, Activity,
   Lock, RefreshCcw, Box, FastForward
 } from 'lucide-react';
