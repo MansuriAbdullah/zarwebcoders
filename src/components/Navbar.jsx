@@ -1,54 +1,62 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Shield, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown, Moon, Sun } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
+
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleDarkMode = () => {
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+      setIsDarkMode(true);
+    }
+  };
 
   const navLinks = [
     { name: 'About us', href: '#about' },
     { name: 'Services', href: '#services', hasDropdown: true },
+    { name: 'Projects', href: '#portfolio' },
+    { name: 'Agreement', href: '#mca' },
     { name: 'Careers', href: '#careers' },
-    { name: 'Contact us', href: '#contact' },
-    { name: 'Enquiry', href: '#contact' },
+    { name: 'Contact us', href: '#contact' }
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b border-slate-100 ${isScrolled
-        ? 'bg-white/95 py-3 shadow-sm'
-        : 'bg-white/85 backdrop-blur-2xl py-4'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b ${isScrolled
+        ? 'bg-white/95 dark:bg-[#0f0a2e]/95 py-2 shadow-sm border-slate-100 dark:border-slate-800'
+        : 'bg-white/85 dark:bg-[#0f0a2e]/85 backdrop-blur-2xl py-3 border-transparent dark:border-transparent'
         }`}
     >
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between">
 
-          {/* Logo Section */}
-          <div className="flex items-center gap-3 cursor-pointer group">
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"
-              style={{
-                background: 'linear-gradient(135deg, #5b21f5, #a855f7, #ec4899)',
-                boxShadow: '0 0 22px rgba(91,33,245,0.55)',
-              }}
-            >
-              <Shield size={20} className="text-white fill-current" />
+          <div className="flex items-center cursor-pointer group">
+            <div className="w-36 h-16 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+              <img src="/assets/Screenshot_2026-03-14_160958-removebg-preview.png" alt="ZarWebCoders Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="text-xl font-black tracking-tight text-slate-900">
-              zarweb<span style={{
-                background: 'linear-gradient(135deg, #5b21f5, #a855f7, #ec4899)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>coders</span>
-            </span>
           </div>
 
           <div className="hidden lg:flex items-center gap-10">
@@ -56,8 +64,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="relative text-[15px] font-semibold text-slate-700 transition-all duration-300 tracking-tight group flex items-center gap-1"
-                style={{ '--tw-text-opacity': 1 }}
+                className="relative text-[15px] font-semibold text-slate-700 dark:text-slate-300 transition-all duration-300 tracking-tight group flex items-center gap-1"
                 onMouseEnter={e => e.currentTarget.style.color = '#5b21f5'}
                 onMouseLeave={e => e.currentTarget.style.color = ''}
               >
@@ -71,14 +78,21 @@ const Navbar = () => {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button 
+              onClick={toggleDarkMode} 
+              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              aria-label="Toggle Dark Mode"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <button className="btn-crypto-primary hidden sm:block">
               Get Started
             </button>
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-slate-800"
+              className="lg:hidden text-slate-800 dark:text-white transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -94,7 +108,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 top-[68px] p-8 z-40 lg:hidden overflow-y-auto shadow-2xl bg-white"
+            className="fixed inset-0 top-[68px] p-8 z-40 lg:hidden overflow-y-auto shadow-2xl bg-white dark:bg-[#0f0a2e] transition-colors duration-500"
           >
             <div className="flex flex-col gap-8">
               {navLinks.map((link) => (
@@ -102,8 +116,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl font-bold text-slate-800 tracking-tighter transition-colors"
-                  style={{ transition: 'color 0.2s' }}
+                  className="text-2xl font-bold text-slate-800 dark:text-slate-200 tracking-tighter transition-colors"
                   onMouseEnter={e => e.currentTarget.style.color = '#5b21f5'}
                   onMouseLeave={e => e.currentTarget.style.color = ''}
                 >

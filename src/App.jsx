@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 import About from './components/About';
 import Careers from './components/Careers';
 import Contact from './components/Contact';
+import MCA from './components/MCA';
 import Footer from './components/Footer';
 
 function App() {
@@ -60,6 +61,11 @@ function App() {
 
         {/* Contact - has its own bg-contact-img */}
         <Contact />
+
+        {/* Master Client Agreement - Blue/Slate */}
+        <div className="section-bg-blue">
+          <MCA />
+        </div>
       </main>
       <Footer />
     </div>

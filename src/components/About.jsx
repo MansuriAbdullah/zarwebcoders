@@ -28,10 +28,7 @@ const points = [
 
 const About = () => {
   return (
-    <section id="about" className="section-padding-crypto relative overflow-hidden">
-
-
-
+    <section id="about" className="section-padding-crypto relative overflow-hidden bg-white dark:bg-[#0f0a2e] transition-colors duration-500">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10">
 
         {/* Visual Side */}
@@ -42,10 +39,8 @@ const About = () => {
           transition={{ duration: 1.2 }}
           className="relative group order-2 lg:order-1"
         >
-
-
-          <div className="relative aspect-square max-w-sm mx-auto lg:max-w-none rounded-[2.5rem] overflow-hidden border border-purple-200/30 bg-[#050b16]"
-            style={{ boxShadow: '0 40px 100px rgba(91,33,245,0.25)' }}
+          <div className="relative aspect-square max-w-[240px] sm:max-w-[300px] lg:max-w-[400px] mx-auto rounded-[2.5rem] overflow-hidden border border-purple-200/30 bg-[#050b16]"
+            style={{ boxShadow: '0 30px 80px rgba(91,33,245,0.2)' }}
           >
             <img
               src="/assets/about_light.png"
@@ -58,19 +53,19 @@ const About = () => {
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-4 right-4 sm:top-8 sm:right-8 p-3 sm:p-4 bg-white/95 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-purple-100 shadow-xl"
+              className="absolute top-4 right-4 p-2.5 sm:p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-purple-100 dark:border-slate-800 shadow-xl"
             >
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl text-white flex items-center justify-center"
+              <div className="flex items-center gap-2 sm:gap-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl text-white flex items-center justify-center"
                   style={{ background: 'linear-gradient(135deg, #5b21f5, #a855f7, #ec4899)' }}>
-                  <Cpu size={20} className="animate-pulse" />
+                  <Cpu size={16} className="animate-pulse" />
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 mb-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping" />
-                    <p className="text-[8px] font-black text-slate-500 uppercase tracking-[0.3em]">Live System</p>
+                    <span className="w-1 h-1 rounded-full bg-green-500 animate-ping" />
+                    <p className="text-[7px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-[0.3em]">Live System</p>
                   </div>
-                  <p className="text-slate-900 font-bold text-sm">Neural Hub Alpha</p>
+                  <p className="text-slate-900 dark:text-white font-bold text-xs sm:text-sm">Neural Hub Alpha</p>
                 </div>
               </div>
             </motion.div>
@@ -94,7 +89,7 @@ const About = () => {
             Institutional Lab
           </div>
 
-          <h2 className="title-hero mb-4" style={{ color: '#0f0a2e' }}>
+          <h2 className="title-hero mb-4 text-slate-900 dark:text-white transition-colors duration-300">
             Architecting <br />
             <span className="gradient-text-blue">Decentralization.</span>
           </h2>
@@ -115,9 +110,8 @@ const About = () => {
                   {point.icon}
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-bold mb-1 tracking-tight group-hover:text-purple-600 transition-colors"
-                    style={{ color: '#0f0a2e' }}>{point.title}</h4>
-                  <p className="text-slate-500 font-medium leading-relaxed text-sm">{point.desc}</p>
+                  <h4 className="text-base sm:text-lg font-bold mb-1 tracking-tight text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors uppercase">{point.title}</h4>
+                  <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed text-sm">{point.desc}</p>
                 </div>
               </motion.div>
             ))}
