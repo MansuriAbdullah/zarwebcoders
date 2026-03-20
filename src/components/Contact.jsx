@@ -54,7 +54,7 @@ const Contact = () => {
               <Zap size={11} className="animate-pulse" fill="currentColor" /> Direct Nexus Line
             </div>
 
-            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white mb-8 leading-[1.05] tracking-tighter uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5.5xl font-black text-slate-900 dark:text-white mb-8 leading-tight tracking-tighter uppercase">
               Architect Your <br />
               <span className="gradient-text-blue">Digital Legacy.</span>
             </h2>

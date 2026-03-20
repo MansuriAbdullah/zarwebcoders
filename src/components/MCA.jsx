@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: "Deliverables & Timelines",
-    desc: "SOW-defined milestones with robotic precision and automated real-time progress tracking.",
+    desc: "SOW-defined milestones with institutional precision and automated real-time progress tracking.",
     icon: <Clock size={24} />,
     gradient: 'linear-gradient(135deg, #8b5cf6, #d946ef)',
     light: 'rgba(139,92,246,0.08)',

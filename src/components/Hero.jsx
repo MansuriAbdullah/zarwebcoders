@@ -7,7 +7,7 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center pt-8 sm:pt-12 pb-16 overflow-hidden bg-white dark:bg-[#0f0a2e] transition-colors duration-500">
       {/* Digital Grid Background */}
       <div className="absolute inset-0 bg-grid-cyber opacity-100 pointer-events-none z-0" />
-      
+
       {/* Animated Cyber Lines */}
       <div className="absolute top-[20%] w-full z-0 overflow-hidden"><div className="animate-cyber-line" /></div>
       <div className="absolute bottom-[20%] w-full z-0 overflow-hidden"><div className="animate-cyber-line" style={{ animationDelay: '6s' }} /></div>
@@ -68,7 +68,7 @@ const Hero = () => {
                   transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
                   className="block gradient-text-blue"
                 >
-                  with Robotic Lab
+                  with Blockchain Technology
                 </motion.span>
               </div>
             </h1>
@@ -83,7 +83,7 @@ const Hero = () => {
             </div>
 
             <p className="subtitle-crypto mb-8 max-w-xl mx-auto lg:mx-0 text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-              We specialize in engineering the world's most elite crypto websites and decentralized ecosystems. Our robotic lab builds sovereign blockchain platforms that dominate the next-generation digital economy.
+              We specialize in engineering the world's most elite crypto websites and decentralized ecosystems. We build sovereign blockchain platforms that dominate the next-generation digital economy.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">

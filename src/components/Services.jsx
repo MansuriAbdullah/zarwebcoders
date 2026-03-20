@@ -109,9 +109,9 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white mb-6 leading-[1.05] tracking-tighter uppercase"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tighter uppercase"
           >
-            ROBOTIC <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Nexus.</span>
+            ZARWEBCODERS <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Nexus.</span>
           </motion.h2>
 
           <motion.p
@@ -121,7 +121,7 @@ const Services = () => {
             transition={{ delay: 0.2 }}
             className="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-base sm:text-lg md:text-xl font-medium leading-relaxed"
           >
-            Institutional-grade blockchain ecosystems powered by high-fidelity AI engines and vibrant robotic automation.
+            Institutional-grade blockchain ecosystems powered by high-fidelity AI engines and vibrant technical automation.
           </motion.p>
         </div>
 
@@ -134,44 +134,51 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -12, scale: 1.02 }}
-              className="group relative rounded-[3rem] p-8 sm:p-12 overflow-hidden border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-xl hover:shadow-[0_45px_120px_-20px_rgba(91,33,245,0.2)] transition-all duration-700 flex flex-col"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative rounded-[2.2rem] p-5 sm:p-8 overflow-hidden border-2 transition-all duration-700 flex flex-col h-full dark:bg-slate-900/40 backdrop-blur-md shadow-2xl"
+              style={{ 
+                borderColor: service.shadow,
+                background: `linear-gradient(white, white) padding-box, ${service.gradient} border-box`
+              }}
             >
               {/* Vibrant Hover Aura */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"
-                style={{ background: service.gradient }}
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none blur-[100px]"
+                style={{ background: service.gradient }} 
               />
 
               {/* Colorful Icon Panel */}
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl relative z-10"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl relative z-10"
                 style={{ background: service.gradient, boxShadow: `0 15px 35px -5px ${service.shadow}` }}
               >
                 {service.icon}
               </div>
 
               {/* Header */}
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-500 uppercase">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight transition-colors duration-500 uppercase">
                 {service.title}
               </h3>
-              <p className="text-[15px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-8 transition-colors duration-300">
+              <p className="text-[13px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-6 transition-colors duration-300">
                 {service.desc}
               </p>
 
               {/* Colorful Feature Tags */}
-              <div className="flex flex-wrap gap-2.5 mb-10">
+              <div className="flex flex-wrap gap-2 mb-8">
                 {service.features.map((f, i) => (
-                  <span key={i} className="px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest border border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 bg-slate-50/50 dark:bg-slate-800/40 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                  <span key={i} className="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest border border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 bg-slate-50/50 dark:bg-slate-800/40">
                     {f}
                   </span>
                 ))}
               </div>
 
-              {/* Action with Colorful Link */}
-              <div className="pt-8 border-t border-slate-50 dark:border-slate-800/60 w-full">
-                <button className="flex items-center gap-3 text-[13px] font-black uppercase tracking-[0.2em] transition-all group/btn" style={{ color: service.color }}>
-                  Explore Nexus <ChevronRight size={16} className="group-hover/btn:translate-x-2 transition-transform" />
+              {/* Action with Colorful Vibrant Button */}
+              <div className="mt-auto pt-6 border-t border-slate-50 dark:border-slate-800/60 w-full">
+                <button 
+                  className="w-full py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-[0.25em] text-white transition-all shadow-lg group-hover:scale-[1.03] active:scale-95 flex items-center justify-center gap-2"
+                  style={{ background: service.gradient, boxShadow: `0 10px 20px -5px ${service.shadow}` }}
+                >
+                  Explore Nexus <ChevronRight size={14} className="group-hover:translate-x-2 transition-transform" />
                 </button>
               </div>
 

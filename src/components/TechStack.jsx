@@ -23,7 +23,7 @@ const techs = [
 const TechStack = () => {
   return (
     <section className="py-24 overflow-hidden relative bg-white dark:bg-[#0f0a2e] transition-colors duration-500">
-      
+
       {/* Dynamic Background Mesh */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full animate-pulse" />
@@ -52,9 +52,9 @@ const TechStack = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tighter leading-[1.05] uppercase"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-5.5xl font-black mb-6 tracking-tightest leading-tight uppercase"
           >
-            <span className="text-slate-900 dark:text-white">World-Class</span> <br className="hidden sm:block" />
+            <span className="text-slate-900 dark:text-white mr-4">World-Class</span>
             <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Power Stack.</span>
           </motion.h2>
 
@@ -80,32 +80,36 @@ const TechStack = () => {
           {/* Row 1 */}
           <motion.div
             animate={{ x: [0, -2000] }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="flex gap-6 whitespace-nowrap min-w-max px-12"
+            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+            className="flex gap-4 whitespace-nowrap min-w-max px-8 mb-8"
           >
             {[...techs, ...techs, ...techs].map((tech, index) => (
               <motion.div
                 key={`${tech.name}-r1-${index}`}
-                whileHover={{ y: -12, scale: 1.1, rotate: 2 }}
-                className="group p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col items-center justify-center gap-4 min-w-[160px] relative overflow-hidden"
+                whileHover={{ y: -10, scale: 1.08 }}
+                className="group p-5 rounded-[2rem] border transition-all duration-300 flex flex-col items-center justify-center gap-3 min-w-[140px] relative overflow-hidden backdrop-blur-md"
+                style={{ 
+                  borderColor: 'rgba(255,255,255,0.1)',
+                  background: 'rgba(255,255,255,0.85)',
+                  boxShadow: `0 10px 30px -10px ${tech.glow}`
+                }}
               >
-                {/* Visual Glow Effect */}
+                {/* Stylish Glow Pulse */}
                 <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(circle at center, ${tech.color}, transparent)` }}
+                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: tech.color }} 
                 />
                 
                 <div 
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-xl group-hover:shadow-[0_0_30px_rgba(0,0,0,0.1)]"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg relative z-10"
                   style={{ 
-                    background: `linear-gradient(135deg, ${tech.bg}, transparent)`, 
-                    color: tech.color,
-                    boxShadow: `0 10px 30px -10px ${tech.glow}`
+                    background: tech.bg, 
+                    color: tech.color 
                   }}
                 >
-                  {React.cloneElement(tech.icon, { size: 32, strokeWidth: 2.5 })}
+                  {React.cloneElement(tech.icon, { size: 24, strokeWidth: 2.5 })}
                 </div>
-                <span className="font-black text-slate-800 dark:text-slate-100 text-[13px] tracking-[0.2em] uppercase transition-colors duration-300">{tech.name}</span>
+                <span className="font-bold text-slate-800 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 relative z-10">{tech.name}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -113,31 +117,36 @@ const TechStack = () => {
           {/* Row 2 (Optional: Reversed for more motion) */}
           <motion.div
             animate={{ x: [-2000, 0] }}
-            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-            className="flex gap-6 whitespace-nowrap min-w-max px-12"
+            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+            className="flex gap-4 whitespace-nowrap min-w-max px-8"
           >
             {[...techs.reverse(), ...techs, ...techs].map((tech, index) => (
               <motion.div
                 key={`${tech.name}-r2-${index}`}
-                whileHover={{ y: -12, scale: 1.1, rotate: -2 }}
-                className="group p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col items-center justify-center gap-4 min-w-[160px] relative overflow-hidden"
+                whileHover={{ y: -10, scale: 1.08 }}
+                className="group p-5 rounded-[2rem] border transition-all duration-300 flex flex-col items-center justify-center gap-3 min-w-[140px] relative overflow-hidden backdrop-blur-md"
+                style={{ 
+                  borderColor: 'rgba(255,255,255,0.1)',
+                  background: 'rgba(255,255,255,0.85)',
+                  boxShadow: `0 10px 30px -10px ${tech.glow}`
+                }}
               >
+                {/* Stylish Glow Pulse */}
                 <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(circle at center, ${tech.color}, transparent)` }}
+                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: tech.color }} 
                 />
                 
                 <div 
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-xl"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg relative z-10"
                   style={{ 
-                    background: `linear-gradient(135deg, ${tech.bg}, transparent)`, 
-                    color: tech.color,
-                    boxShadow: `0 10px 30px -10px ${tech.glow}`
+                    background: tech.bg, 
+                    color: tech.color 
                   }}
                 >
-                  {React.cloneElement(tech.icon, { size: 32, strokeWidth: 2.5 })}
+                  {React.cloneElement(tech.icon, { size: 24, strokeWidth: 2.5 })}
                 </div>
-                <span className="font-black text-slate-800 dark:text-slate-100 text-[13px] tracking-[0.2em] uppercase transition-colors duration-300">{tech.name}</span>
+                <span className="font-bold text-slate-800 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 relative z-10">{tech.name}</span>
               </motion.div>
             ))}
           </motion.div>
