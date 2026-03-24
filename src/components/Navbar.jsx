@@ -54,7 +54,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
 
           <div className="flex items-center cursor-pointer group">
-            <div className="w-28 sm:w-36 h-12 sm:h-16 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+            <div className="w-24 xs:w-28 sm:w-36 h-10 sm:h-16 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
               <img src="/assets/Screenshot_2026-03-14_160958-removebg-preview.png" alt="ZarWebCoders Logo" className="w-full h-full object-contain" />
             </div>
           </div>
@@ -78,25 +78,25 @@ const Navbar = () => {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-3 sm:gap-6">
+          <div className="flex items-center gap-2 sm:gap-4 xl:gap-6">
             <button 
               onClick={toggleDarkMode} 
-              className="p-2 sm:p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shadow-sm"
+              className="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shadow-sm"
               aria-label="Toggle Dark Mode"
             >
-              {isDarkMode ? <Sun size={18} className="sm:w-[20px] sm:h-[20px]" /> : <Moon size={18} className="sm:w-[20px] sm:h-[20px]" />}
+              {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             
-            <button className="btn-crypto-primary hidden lg:flex">
+            <button className="btn-crypto-primary hidden sm:flex lg:flex px-6 py-2.5 text-[12px]">
               Get Started
             </button>
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-xl text-slate-800 dark:text-white bg-slate-50 dark:bg-slate-800 transition-colors shadow-sm"
+              className="lg:hidden p-2.5 rounded-xl text-slate-800 dark:text-white bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 transition-colors shadow-sm active:scale-95"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>

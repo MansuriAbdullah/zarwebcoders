@@ -217,7 +217,7 @@ const Testimonials = () => {
                     strokeWidth={0.8}
                     style={{ color: t.accentColor }}
                   />
-                  <p className="text-slate-700 dark:text-slate-200 text-base md:text-lg font-medium leading-relaxed pl-3 italic transition-colors duration-300">
+                  <p className="text-black dark:text-slate-900 text-base md:text-xl font-bold leading-relaxed pl-3 italic transition-colors duration-300">
                     "{t.content}"
                   </p>
                 </div>
@@ -225,7 +225,7 @@ const Testimonials = () => {
                 {/* Stars */}
                 <div className="flex gap-1 mb-6">
                   {[...Array(t.stars)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-amber-400 text-amber-400" />
+                    <Star key={i} size={18} className="fill-amber-500 text-amber-500" />
                   ))}
                 </div>
 
@@ -235,22 +235,22 @@ const Testimonials = () => {
                     <img
                       src={t.image}
                       alt={t.name}
-                      className="w-14 h-14 rounded-2xl border-2 shadow-md object-cover"
+                      className="w-16 h-16 rounded-2xl border-2 shadow-lg object-cover"
                       style={{ borderColor: t.lightBorder }}
                     />
                     <div
-                      className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center"
+                      className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center shadow-lg"
                       style={{ background: t.gradient }}
                     >
-                      <BadgeCheck size={11} className="text-white" />
+                      <BadgeCheck size={12} className="text-white" />
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900 dark:text-white tracking-tight transition-colors duration-300">
+                    <h4 className="text-lg font-black text-black dark:text-slate-900 tracking-tight transition-colors duration-300 leading-none mb-1">
                       {t.name}
                     </h4>
-                    <p className="text-[12px] text-slate-500 dark:text-slate-400 transition-colors duration-300">{t.role}</p>
-                    <p className="text-[10px] font-bold uppercase tracking-widest mt-0.5" style={{ color: t.accentColor }}>
+                    <p className="text-[13px] font-bold text-slate-800 dark:text-slate-800 transition-colors duration-300">{t.role}</p>
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] mt-1" style={{ color: t.accentColor }}>
                       {t.company}
                     </p>
                   </div>
@@ -293,11 +293,10 @@ const Testimonials = () => {
             <button
               key={i}
               onClick={() => { setAutoPlay(false); setCurrent(i); }}
-              className={`rounded-2xl p-4 text-left border transition-all duration-300 ${
-                i === current
+              className={`rounded-2xl p-4 text-left border transition-all duration-300 ${i === current
                   ? 'shadow-md scale-[1.02]'
                   : 'border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/40 opacity-70 hover:opacity-100'
-              }`}
+                }`}
               style={
                 i === current
                   ? { background: item.lightBg, borderColor: item.lightBorder }

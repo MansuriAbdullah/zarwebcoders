@@ -135,51 +135,60 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative rounded-[2.2rem] p-5 sm:p-8 overflow-hidden border-2 transition-all duration-700 flex flex-col h-full dark:bg-slate-900/40 backdrop-blur-md shadow-2xl"
-              style={{ 
-                borderColor: service.shadow,
-                background: `linear-gradient(white, white) padding-box, ${service.gradient} border-box`
+              className="group relative rounded-[1.8rem] p-5 sm:p-6 overflow-hidden border transition-all duration-700 flex flex-col h-full bg-white dark:bg-[#060a18] backdrop-blur-xl shadow-2xl"
+              style={{
+                borderColor: `${service.color}30`,
+                background: 'transparent'
               }}
             >
+              {/* Card Surface Overlay (Internal Color) */}
+              <div className="absolute inset-[2px] rounded-[1.7rem] bg-white dark:bg-[#060a18] z-0 transition-colors duration-500" />
+              
+              {/* Top gradient border effect */}
+              <div className="absolute inset-0 z-[-1]" style={{ background: service.gradient }} />
+
               {/* Vibrant Hover Aura */}
-              <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none blur-[100px]"
-                style={{ background: service.gradient }} 
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none blur-[100px] z-0"
+                style={{ background: service.gradient }}
               />
 
               {/* Colorful Icon Panel */}
               <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl relative z-10"
-                style={{ background: service.gradient, boxShadow: `0 15px 35px -5px ${service.shadow}` }}
+                className="w-11 h-11 rounded-xl flex items-center justify-center text-white mb-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl relative z-10"
+                style={{ background: service.gradient, boxShadow: `0 10px 25px -5px ${service.shadow}` }}
               >
-                {service.icon}
+                {React.cloneElement(service.icon, { size: 20 })}
               </div>
 
               {/* Header */}
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight transition-colors duration-500 uppercase">
-                {service.title}
-              </h3>
-              <p className="text-[13px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-6 transition-colors duration-300">
-                {service.desc}
-              </p>
+              <div className="relative z-10">
+                <h3 className="text-xl font-black text-slate-950 dark:text-white mb-2 tracking-tighter transition-colors duration-500 uppercase leading-none">
+                  {service.title}
+                </h3>
+                <p className="text-[14px] text-slate-800 dark:text-slate-100 font-black leading-relaxed mb-5 transition-colors duration-300">
+                  {service.desc}
+                </p>
 
-              {/* Colorful Feature Tags */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {service.features.map((f, i) => (
-                  <span key={i} className="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest border border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 bg-slate-50/50 dark:bg-slate-800/40">
-                    {f}
-                  </span>
-                ))}
-              </div>
+                {/* Colorful Feature Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {service.features.map((f, i) => (
+                    <span key={i} className="px-2.5 py-1 rounded-md text-[8.5px] font-black uppercase tracking-widest border border-slate-200 dark:border-slate-800 shadow-sm"
+                      style={{ color: service.color, background: 'rgba(0,0,0,0.03)', borderColor: `${service.color}30` }}>
+                      {f}
+                    </span>
+                  ))}
+                </div>
 
-              {/* Action with Colorful Vibrant Button */}
-              <div className="mt-auto pt-6 border-t border-slate-50 dark:border-slate-800/60 w-full">
-                <button 
-                  className="w-full py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-[0.25em] text-white transition-all shadow-lg group-hover:scale-[1.03] active:scale-95 flex items-center justify-center gap-2"
-                  style={{ background: service.gradient, boxShadow: `0 10px 20px -5px ${service.shadow}` }}
-                >
-                  Explore Nexus <ChevronRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                </button>
+                {/* Action with Colorful Vibrant Button */}
+                <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/60 w-full">
+                  <button
+                    className="w-full py-3.5 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] text-white transition-all shadow-xl group-hover:scale-[1.03] active:scale-95 flex items-center justify-center gap-2"
+                    style={{ background: service.gradient, boxShadow: `0 15px 30px -10px ${service.shadow}` }}
+                  >
+                    Explore Nexus <ChevronRight size={15} className="group-hover:translate-x-2 transition-transform" />
+                  </button>
+                </div>
               </div>
 
               {/* Decorative Hexagon */}
@@ -196,16 +205,16 @@ const Services = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-20 p-8 rounded-[3rem] border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 flex flex-wrap justify-center gap-8 md:gap-16"
+          className="mt-20 p-6 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center gap-8 md:gap-16"
         >
           {metrics.map((m, i) => (
-            <div key={i} className="flex items-center gap-4 transition-transform hover:scale-105">
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-lg" style={{ color: m.color }}>
-                <m.icon size={22} />
+            <div key={i} className="flex items-center gap-3 sm:gap-4 transition-transform hover:scale-105">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-lg flex-shrink-0" style={{ color: m.color }}>
+                <m.icon size={18} className="sm:w-[22px] sm:h-[22px]" />
               </div>
               <div>
-                <p className="text-base font-black text-slate-900 dark:text-white leading-none uppercase tracking-tighter">{m.label}</p>
-                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Efficiency</span>
+                <p className="text-sm sm:text-base font-black text-slate-900 dark:text-white leading-none uppercase tracking-tighter">{m.label}</p>
+                <span className="text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-widest">Efficiency</span>
               </div>
             </div>
           ))}

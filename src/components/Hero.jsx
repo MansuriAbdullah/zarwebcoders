@@ -29,44 +29,44 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[10px] font-black mb-8 uppercase tracking-[0.25em] shadow-xl"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[9px] font-black mb-6 uppercase tracking-[0.3em] shadow-lg"
               style={{
                 background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #5b21f5, #a855f7, #ec4899) border-box',
-                border: '1.5px solid transparent',
+                border: '1.2px solid transparent',
                 color: '#7c3aed',
               }}
             >
-              <Zap size={14} fill="currentColor" className="animate-pulse" />
+              <Zap size={10} fill="currentColor" className="animate-pulse" />
               ENGINEERING THE MAINNET
             </motion.div>
 
-            <h1 className="mb-8 text-slate-900 dark:text-white transition-colors duration-300 leading-[1.1] uppercase text-glow-cyan text-4xl sm:text-6xl md:text-6xl lg:text-5.5xl font-bold tracking-[0.05em]">
-              <div className="overflow-hidden mb-1">
+            <h1 className="mb-8 text-slate-950 dark:text-white transition-colors duration-300 leading-[0.95] uppercase text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black tracking-tighter">
+              <div className="overflow-hidden mb-1.5">
                 <motion.span
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 50, rotate: 2 }}
+                  animate={{ opacity: 1, y: 0, rotate: 0 }}
                   transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="block"
+                  className="block opacity-90"
                 >
                   Build Your Elite
                 </motion.span>
               </div>
-              <div className="overflow-hidden mb-1">
+              <div className="overflow-hidden mb-3.5">
                 <motion.span
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  initial={{ opacity: 0, y: 50, rotate: -2 }}
+                  animate={{ opacity: 1, y: 0, rotate: 0 }}
+                  transition={{ delay: 0.25, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   className="block"
                 >
-                  Crypto Ecosystems
+                  Crypto <span className="text-[#5b21f5] dark:text-purple-400">Ecosystems</span>
                 </motion.span>
               </div>
-              <div className="overflow-hidden">
+              <div className="overflow-hidden leading-[1.1]">
                 <motion.span
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
-                  className="block gradient-text-blue"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
+                  className="block bg-gradient-to-r from-[#5b21f5] via-[#a855f7] to-[#ec4899] bg-clip-text text-transparent italic tracking-tight normal-case text-2xl sm:text-4xl md:text-5xl lg:text-5xl"
                 >
                   with Blockchain Technology
                 </motion.span>
@@ -75,14 +75,14 @@ const Hero = () => {
 
             <div className="flex flex-wrap gap-2 mb-8 justify-center lg:justify-start">
               {['Launch dApp.', 'Scale Token.', 'Node Infrastructure.'].map((tag, i) => (
-                <span key={i} className="px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest text-white shadow-md shadow-cyan-500/20"
+                <span key={i} className="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest text-white shadow-md shadow-cyan-500/10"
                   style={{ background: i === 0 ? 'linear-gradient(135deg,#06b6d4,#10b981)' : i === 1 ? 'linear-gradient(135deg,#5b21f5,#7c3aed)' : 'linear-gradient(135deg,#ec4899,#f97316)' }}>
                   {tag}
                 </span>
               ))}
             </div>
 
-            <p className="subtitle-crypto mb-8 max-w-xl mx-auto lg:mx-0 text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+            <p className="mb-6 max-w-lg mx-auto lg:mx-0 text-slate-700 dark:text-slate-300 font-bold leading-relaxed text-[13px] sm:text-sm uppercase tracking-wider opacity-80">
               We specialize in engineering the world's most elite crypto websites and decentralized ecosystems. We build sovereign blockchain platforms that dominate the next-generation digital economy.
             </p>
 

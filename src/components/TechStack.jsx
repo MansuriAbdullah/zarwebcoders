@@ -86,10 +86,10 @@ const TechStack = () => {
             {[...techs, ...techs, ...techs].map((tech, index) => (
               <motion.div
                 key={`${tech.name}-r1-${index}`}
-                whileHover={{ y: -10, scale: 1.08 }}
-                className="group p-5 rounded-[2rem] border transition-all duration-300 flex flex-col items-center justify-center gap-3 min-w-[140px] relative overflow-hidden backdrop-blur-md"
+                whileHover={{ y: -10, scale: 1.08, borderColor: tech.color }}
+                className="group p-5 rounded-[2rem] border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 min-w-[140px] relative overflow-hidden backdrop-blur-md"
                 style={{ 
-                  borderColor: 'rgba(255,255,255,0.1)',
+                  borderColor: `${tech.color}30`,
                   background: 'rgba(255,255,255,0.85)',
                   boxShadow: `0 10px 30px -10px ${tech.glow}`
                 }}
@@ -109,7 +109,7 @@ const TechStack = () => {
                 >
                   {React.cloneElement(tech.icon, { size: 24, strokeWidth: 2.5 })}
                 </div>
-                <span className="font-bold text-slate-800 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 relative z-10">{tech.name}</span>
+                <span className="font-black text-[#0f0a2e] dark:text-[#0f0a2e] text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 relative z-10">{tech.name}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -123,10 +123,10 @@ const TechStack = () => {
             {[...techs.reverse(), ...techs, ...techs].map((tech, index) => (
               <motion.div
                 key={`${tech.name}-r2-${index}`}
-                whileHover={{ y: -10, scale: 1.08 }}
-                className="group p-5 rounded-[2rem] border transition-all duration-300 flex flex-col items-center justify-center gap-3 min-w-[140px] relative overflow-hidden backdrop-blur-md"
+                whileHover={{ y: -10, scale: 1.08, borderColor: tech.color }}
+                className="group p-5 rounded-[2rem] border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 min-w-[140px] relative overflow-hidden backdrop-blur-md"
                 style={{ 
-                  borderColor: 'rgba(255,255,255,0.1)',
+                  borderColor: `${tech.color}30`,
                   background: 'rgba(255,255,255,0.85)',
                   boxShadow: `0 10px 30px -10px ${tech.glow}`
                 }}
@@ -146,7 +146,7 @@ const TechStack = () => {
                 >
                   {React.cloneElement(tech.icon, { size: 24, strokeWidth: 2.5 })}
                 </div>
-                <span className="font-bold text-slate-800 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 relative z-10">{tech.name}</span>
+                <span className="font-black text-[#0f0a2e] dark:text-[#0f0a2e] text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 relative z-10">{tech.name}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -162,11 +162,14 @@ const TechStack = () => {
           { icon: Binary, label: "Consensus Layer", color: "#00dfd8" }
         ].map((item, i) => (
           <div key={i} className="flex flex-col items-center gap-4 group transition-transform hover:scale-110">
-            <div className="w-12 h-12 rounded-[1.25rem] flex items-center justify-center bg-slate-50 dark:bg-slate-800 transition-colors shadow-2xl relative overflow-hidden">
+            <div 
+              className="w-12 h-12 rounded-[1.25rem] flex items-center justify-center bg-white dark:bg-white transition-colors shadow-2xl relative overflow-hidden border-2" 
+              style={{ borderColor: `${item.color}30` }}
+            >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity" style={{ background: item.color }} />
               <item.icon size={22} style={{ color: item.color }} />
             </div>
-            <span className="text-[10px] sm:text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-[0.3em] text-center">{item.label}</span>
+            <span className="text-[10px] sm:text-[11px] font-black text-[#0f0a2e] dark:text-white uppercase tracking-[0.3em] text-center">{item.label}</span>
           </div>
         ))}
       </div>
