@@ -280,7 +280,7 @@ const MCA = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {[
                     { label: 'Full Name', key: 'name', type: 'text', placeholder: 'John Nakamoto' },
-                    { label: 'Email Address', key: 'email', type: 'email', placeholder: 'john@web3.io' },
+                    { label: 'Email Address', key: 'email', type: 'email', placeholder: 'Info@zarwebcoders.in' },
                     { label: 'Company / Organization', key: 'company', type: 'text', placeholder: 'Acme Labs' },
                     { label: 'Project Type', key: 'project', type: 'text', placeholder: 'DeFi Protocol / NFT Platform / Token...' },
                     { label: 'Estimated Budget', key: 'budget', type: 'text', placeholder: '$10K – $50K / Crypto equivalent' },

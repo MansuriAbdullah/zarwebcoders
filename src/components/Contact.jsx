@@ -3,33 +3,33 @@ import { motion } from 'framer-motion';
 import { Send, Mail, MapPin, Phone, MessageSquare, ShieldCheck, Zap, Globe } from 'lucide-react';
 
 const contactItems = [
-  { 
-    label: "Secure Email", 
-    value: "hello@zarwebcoders.com", 
-    icon: <Mail size={20} />, 
+  {
+    label: "Secure Email",
+    value: "Info@zarwebcoders.in",
+    icon: <Mail size={20} />,
     gradient: 'linear-gradient(135deg, #5b21f5, #a855f7)',
-    shadow: 'rgba(91,33,245,0.25)' 
+    shadow: 'rgba(91,33,245,0.25)'
   },
-  { 
-    label: "Lab Hotline", 
-    value: "+1 (234) 567-890", 
-    icon: <Phone size={20} />, 
+  {
+    label: "Lab Hotline",
+    value: "+91 8160404725",
+    icon: <Phone size={20} />,
     gradient: 'linear-gradient(135deg, #0891b2, #06d6a0)',
-    shadow: 'rgba(8,145,178,0.25)' 
+    shadow: 'rgba(8,145,178,0.25)'
   },
-  { 
-    label: "Nexus Base", 
-    value: "Digital Valley, Dubai / UAE", 
-    icon: <MapPin size={20} />, 
+  {
+    label: "Zarwebcoders Base",
+    value: "Ahmedabad, Gujarat, India",
+    icon: <MapPin size={20} />,
     gradient: 'linear-gradient(135deg, #ec4899, #f97316)',
-    shadow: 'rgba(236,72,153,0.25)' 
+    shadow: 'rgba(236,72,153,0.25)'
   },
 ];
 
 const Contact = () => {
   return (
     <section id="contact" className="relative overflow-hidden py-24 bg-white dark:bg-[#0f0a2e] transition-colors duration-500">
-      
+
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 dark:opacity-5 pointer-events-none" style={{ background: 'radial-gradient(circle, #5b21f5, #ec4899)' }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] opacity-10 dark:opacity-5 pointer-events-none" style={{ background: 'radial-gradient(circle, #06b6d4, #10b981)' }} />
@@ -46,12 +46,12 @@ const Contact = () => {
             className="text-center lg:text-left"
           >
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-black mb-6 uppercase tracking-[0.3em] transition-all shadow-lg"
-              style={{ 
+              style={{
                 background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #5b21f5, #ec4899) border-box',
-                border: '2px solid transparent', 
-                color: '#5b21f5' 
+                border: '2px solid transparent',
+                color: '#5b21f5'
               }}>
-              <Zap size={11} className="animate-pulse" fill="currentColor" /> Direct Nexus Line
+              <Zap size={11} className="animate-pulse" fill="currentColor" /> Direct Support Line
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5.5xl font-black text-slate-900 dark:text-white mb-8 leading-tight tracking-tighter uppercase">
@@ -66,9 +66,9 @@ const Contact = () => {
             <div className="space-y-8 max-w-lg mx-auto lg:mx-0">
               {contactItems.map((item, i) => (
                 <motion.div
-                   key={i}
-                   whileHover={{ x: index => (window.innerWidth >= 1024 ? 8 : 0) }}
-                   className="flex flex-col sm:flex-row items-center lg:items-center gap-5 sm:gap-6 group cursor-pointer"
+                  key={i}
+                  whileHover={{ x: index => (window.innerWidth >= 1024 ? 8 : 0) }}
+                  className="flex flex-col sm:flex-row items-center lg:items-center gap-5 sm:gap-6 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-2xl flex-shrink-0"
                     style={{ background: item.gradient, boxShadow: `0 12px 30px ${item.shadow}` }}>
@@ -90,13 +90,13 @@ const Contact = () => {
             <div className="mt-16 pt-10 border-t border-slate-100 dark:border-slate-800 flex flex-wrap justify-center lg:justify-start gap-8 sm:gap-12 opacity-60">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
-                   <ShieldCheck size={16} className="text-purple-500" />
+                  <ShieldCheck size={16} className="text-purple-500" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">Secure Protocol</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
-                   <Globe size={16} className="text-purple-500" />
+                  <Globe size={16} className="text-purple-500" />
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">Global Node Base</span>
               </div>
@@ -132,7 +132,7 @@ const Contact = () => {
                   <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest ml-1">Secure Email</label>
                   <input
                     type="email"
-                    placeholder="nexus@company.com"
+                    placeholder="Info@zarwebcoders.in"
                     className="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 text-slate-900 dark:text-white font-semibold text-sm outline-none transition-all placeholder:text-slate-400 focus:ring-2 focus:ring-purple-500/20"
                   />
                 </div>

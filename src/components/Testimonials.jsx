@@ -35,8 +35,8 @@ const testimonials = [
   },
   {
     name: "Michael Chen",
-    role: "Founder, CryptoNexus",
-    company: "CryptoNexus Protocol",
+    role: "Founder, Crypto",
+    company: "Crypto Protocol",
     content: "Their smart contract auditing and dApp development is world-class. Launched our NFT marketplace ahead of schedule with zero security vulnerabilities. Truly the best team in Web3.",
     image: "https://i.pravatar.cc/150?u=mike",
     stars: 5,
@@ -120,7 +120,7 @@ const Testimonials = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-5.5xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tighter uppercase"
           >
-            FOUNDER <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Nexus.</span>
+            FOUNDER <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">STORIES.</span>
           </motion.h2>
 
           <motion.p
@@ -294,8 +294,8 @@ const Testimonials = () => {
               key={i}
               onClick={() => { setAutoPlay(false); setCurrent(i); }}
               className={`rounded-2xl p-4 text-left border transition-all duration-300 ${i === current
-                  ? 'shadow-md scale-[1.02]'
-                  : 'border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/40 opacity-70 hover:opacity-100'
+                ? 'shadow-md scale-[1.02]'
+                : 'border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/40 opacity-70 hover:opacity-100'
                 }`}
               style={
                 i === current

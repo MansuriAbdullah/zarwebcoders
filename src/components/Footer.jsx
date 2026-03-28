@@ -153,7 +153,7 @@ const Footer = () => {
               <form className="relative" onSubmit={e => e.preventDefault()}>
                 <input
                   type="email"
-                  placeholder="commander@enterprise.io"
+                  placeholder="Info@zarwebcoders.in"
                   className="w-full pl-5 pr-14 py-3.5 rounded-xl border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-[#08051a] text-[#0f0a2e] dark:text-white font-bold text-xs outline-none focus:bg-white dark:focus:bg-[#0c092e] transition-all placeholder:text-slate-400 shadow-inner"
                 />
                 <button className="absolute right-1.5 top-1.5 w-10 h-10 rounded-lg bg-gradient-to-br from-[#5b21f5] to-[#ec4899] text-white flex items-center justify-center shadow-lg hover:brightness-110 active:scale-95 transition-all">

@@ -111,7 +111,7 @@ const Services = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tighter uppercase"
           >
-            ZARWEBCODERS <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Nexus.</span>
+            ZARWEBCODERS <span className="bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#0070f3] bg-clip-text text-transparent">Services.</span>
           </motion.h2>
 
           <motion.p
@@ -143,7 +143,7 @@ const Services = () => {
             >
               {/* Card Surface Overlay (Internal Color) */}
               <div className="absolute inset-[2px] rounded-[1.7rem] bg-white dark:bg-[#060a18] z-0 transition-colors duration-500" />
-              
+
               {/* Top gradient border effect */}
               <div className="absolute inset-0 z-[-1]" style={{ background: service.gradient }} />
 
@@ -186,7 +186,7 @@ const Services = () => {
                     className="w-full py-3.5 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] text-white transition-all shadow-xl group-hover:scale-[1.03] active:scale-95 flex items-center justify-center gap-2"
                     style={{ background: service.gradient, boxShadow: `0 15px 30px -10px ${service.shadow}` }}
                   >
-                    Explore Nexus <ChevronRight size={15} className="group-hover:translate-x-2 transition-transform" />
+                    Explore Services <ChevronRight size={15} className="group-hover:translate-x-2 transition-transform" />
                   </button>
                 </div>
               </div>

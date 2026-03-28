@@ -75,7 +75,7 @@ const WhyChooseUs = () => {
               transition={{ delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#0f0a2e] dark:text-white mb-6 tracking-tighter transition-colors duration-300 uppercase leading-[0.95]"
             >
-              Why The <span className="gradient-text-blue">Lab.</span>
+              Why choose <span className="gradient-text-blue">Zarwebcoders.</span>
             </motion.h2>
 
             <motion.p

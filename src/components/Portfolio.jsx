@@ -4,7 +4,7 @@ import { ArrowUpRight, ExternalLink, Github, Layers, ShieldCheck, Zap, Globe, Cp
 
 const projects = [
   {
-    title: "GigDial Nexus",
+    title: "GigDial",
     desc: "A mission-critical freelance marketplace connecting global talent with high-fidelity opportunities.",
     image: "/assets/projects/gigdial.png",
     category: "Marketplace / Web3",
@@ -202,7 +202,7 @@ const Portfolio = () => {
                     className="flex items-center gap-3 text-[13px] font-black uppercase tracking-[0.2em] group/launch transition-all hover:scale-110 active:scale-95"
                     style={{ color: project.color }}
                   >
-                    Launch Nexus <Rocket size={16} className="group-hover/launch:-translate-y-1 group-hover/launch:translate-x-1 transition-transform" />
+                    Launch Project <Rocket size={16} className="group-hover/launch:-translate-y-1 group-hover/launch:translate-x-1 transition-transform" />
                   </a>
                   <div className="flex gap-6" style={{ color: project.color }}>
                     <Github size={20} className="hover:scale-125 transition-all cursor-pointer" />

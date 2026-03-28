@@ -44,7 +44,7 @@ const TechStack = () => {
               color: '#7928ca',
             }}
           >
-            <Chip size={14} className="animate-pulse" /> Infrastructure Nexus
+            <Chip size={14} className="animate-pulse" /> Infrastructure Stack
           </motion.div>
 
           <motion.h2

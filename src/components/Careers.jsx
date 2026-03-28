@@ -323,11 +323,11 @@ const Careers = () => {
             We're always on the lookout for exceptional talent. Drop us a line and let's talk.
           </p>
           <a
-            href="mailto:talent@zarwebcoders.com"
+            href="mailto:Info@zarwebcoders.in"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full text-[13px] font-bold transition-all hover:scale-105"
             style={{ color: '#5b21f5' }}
           >
-            <Send size={14} /> talent@zarwebcoders.com
+            <Send size={14} /> Info@zarwebcoders.in
           </a>
         </motion.div>
 
