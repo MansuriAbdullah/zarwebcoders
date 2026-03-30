@@ -1,75 +1,53 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import TechStack from './components/TechStack';
-import Portfolio from './components/Portfolio';
-import WhyChooseUs from './components/WhyChooseUs';
-import Process from './components/Process';
-import Testimonials from './components/Testimonials';
-import About from './components/About';
-import Careers from './components/Careers';
-import Contact from './components/Contact';
-import MCA from './components/MCA';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import ServicesPage from './pages/ServicesPage';
+import PortfolioPage from './pages/PortfolioPage';
+import AgreementPage from './pages/AgreementPage';
+import CareersPage from './pages/CareersPage';
+import ContactPage from './pages/ContactPage';
 
-function App() {
+// ScrollToTop component to reset scroll position on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function AppContent() {
   return (
     <div className="min-h-screen bg-white dark:bg-[#0f0a2e] text-slate-900 dark:text-white transition-colors duration-500">
       <Navbar />
+      <ScrollToTop />
       <main className="pt-[70px] sm:pt-[80px]">
-        {/* Hero - vibrant gradient */}
-        <Hero />
-
-        {/* About - soft violet */}
-        <div className="section-bg-violet">
-          <About />
-        </div>
-
-        {/* Services - always has its own bg-services-img */}
-        <Services />
-
-        {/* TechStack - teal / mint */}
-        <div className="section-bg-teal">
-          <TechStack />
-        </div>
-
-        {/* Portfolio - indigo */}
-        <div className="section-bg-indigo">
-          <Portfolio />
-        </div>
-
-        {/* Why Choose Us - amber / warm */}
-        <div className="section-bg-amber">
-          <WhyChooseUs />
-        </div>
-
-        {/* Process - violet */}
-        <div className="section-bg-violet">
-          <Process />
-        </div>
-
-        {/* Testimonials - pink */}
-        <div className="section-bg-pink">
-          <Testimonials />
-        </div>
-
-        {/* Careers - teal */}
-        <div className="section-bg-teal">
-          <Careers />
-        </div>
-
-        {/* Contact - has its own bg-contact-img */}
-        <Contact />
-
-        {/* Master Client Agreement - Blue/Slate */}
-        <div className="section-bg-blue">
-          <MCA />
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/agreement" element={<AgreementPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/contact-us" element={<ContactPage />} />
+        </Routes>
       </main>
       <Footer />
     </div>
   );
 }
 
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
 export default App;
+

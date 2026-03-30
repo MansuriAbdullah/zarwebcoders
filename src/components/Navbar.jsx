@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, ChevronDown, Moon, Sun } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -35,13 +38,29 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: 'About us', href: '#about' },
-    { name: 'Services', href: '#services', hasDropdown: true },
-    { name: 'Projects', href: '#portfolio' },
-    { name: 'Agreement', href: '#mca' },
-    { name: 'Careers', href: '#careers' },
-    { name: 'Contact us', href: '#contact' }
+    { name: 'About us', href: '/#about', type: 'scroll' },
+    { name: 'Services', href: '/services', hasDropdown: true },
+    { name: 'Projects', href: '/portfolio' },
+    { name: 'Agreement', href: '/agreement' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Contact us', href: '/contact-us' }
   ];
+
+
+  const handleNavClick = (e, link) => {
+    if (link.type === 'scroll') {
+      if (pathname === '/') {
+        e.preventDefault();
+        const element = document.getElementById(link.href.replace('/#', ''));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      setIsMenuOpen(false);
+    } else {
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <nav
@@ -53,17 +72,18 @@ const Navbar = () => {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 sm:h-20">
 
-          <div className="flex items-center cursor-pointer group">
+          <Link to="/" className="flex items-center cursor-pointer group">
             <div className="w-24 xs:w-28 sm:w-36 h-10 sm:h-16 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
               <img src="/assets/Screenshot_2026-03-14_160958-removebg-preview.png" alt="ZarWebCoders Logo" className="w-full h-full object-contain" />
             </div>
-          </div>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-8 xl:gap-10">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
+                onClick={(e) => handleNavClick(e, link)}
                 className="relative text-[14px] xl:text-[15px] font-semibold text-slate-700 dark:text-slate-300 transition-all duration-300 tracking-tight group flex items-center gap-1"
                 onMouseEnter={e => e.currentTarget.style.color = '#5b21f5'}
                 onMouseLeave={e => e.currentTarget.style.color = ''}
@@ -73,7 +93,7 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 rounded-full group-hover:w-full transition-all duration-300"
                   style={{ background: 'linear-gradient(90deg, #5b21f5, #ec4899)' }}
                 />
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -113,9 +133,9 @@ const Navbar = () => {
             className="fixed inset-0 top-0 left-0 w-full h-full p-8 z-[60] lg:hidden overflow-y-auto bg-white dark:bg-[#0f0a2e] transition-colors duration-500"
           >
             <div className="flex items-center justify-between mb-12">
-              <div className="w-28 h-12 overflow-hidden">
+              <Link to="/" className="w-28 h-12 overflow-hidden" onClick={() => setIsMenuOpen(false)}>
                 <img src="/assets/Screenshot_2026-03-14_160958-removebg-preview.png" alt="Logo" className="w-full h-full object-contain" />
-              </div>
+              </Link>
               <button 
                 onClick={() => setIsMenuOpen(false)}
                 className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white"
@@ -126,15 +146,16 @@ const Navbar = () => {
 
             <div className="flex flex-col gap-6 items-center">
               {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter transition-colors flex items-center justify-between group w-full px-4"
-                >
-                  <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">{link.name}</span>
-                  <ArrowRight size={24} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-purple-600" />
-                </motion.a>
+                <motion.div key={link.name} className="w-full">
+                  <Link
+                    to={link.href}
+                    onClick={(e) => handleNavClick(e, link)}
+                    className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter transition-colors flex items-center justify-between group w-full px-4"
+                  >
+                    <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">{link.name}</span>
+                    <ArrowRight size={24} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-purple-600" />
+                  </Link>
+                </motion.div>
               ))}
               
               <div className="h-px w-full bg-slate-100 dark:bg-slate-800 my-6" />

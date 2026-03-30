@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { Twitter, Linkedin, Github, Instagram, ArrowUp, Send, Mail, ShieldCheck, Zap, Globe, Cpu, Blocks, Rocket, Code2, CpuIcon, Layers, Radio } from 'lucide-react';
 
 const socialLinks = [
@@ -10,13 +11,14 @@ const socialLinks = [
 ];
 
 const ecosystemLinks = [
-  { name: 'Home', href: '#home', color: 'from-blue-500 to-cyan-400' },
-  { name: 'Services', href: '#services', color: 'from-purple-500 to-pink-500' },
-  { name: 'Projects', href: '#projects', color: 'from-orange-500 to-yellow-500' },
-  { name: 'About', href: '#about', color: 'from-green-500 to-emerald-400' },
-  { name: 'Careers', href: '#careers', color: 'from-indigo-500 to-blue-500' },
-  { name: 'Contact', href: '#contact', color: 'from-rose-500 to-pink-500' },
+  { name: 'Home', href: '/', color: 'from-blue-500 to-cyan-400' },
+  { name: 'Services', href: '/services', color: 'from-purple-500 to-pink-500' },
+  { name: 'Projects', href: '/portfolio', color: 'from-orange-500 to-yellow-500' },
+  { name: 'About', href: '/#about', color: 'from-green-500 to-emerald-400', type: 'scroll' },
+  { name: 'Careers', href: '/careers', color: 'from-indigo-500 to-blue-500' },
+  { name: 'Contact', href: '/contact-us', color: 'from-rose-500 to-pink-500' },
 ];
+
 
 const solutionsLinks = [
   { name: 'DeFi Protocols', href: '#', Icon: Radio },
@@ -26,7 +28,20 @@ const solutionsLinks = [
 ];
 
 const Footer = () => {
+  const { pathname } = useLocation();
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const handleNavClick = (e, link) => {
+    if (link.type === 'scroll') {
+      if (pathname === '/') {
+        e.preventDefault();
+        const element = document.getElementById(link.href.replace('/#', ''));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
 
   return (
     <footer className="relative pt-16 pb-12 overflow-hidden bg-[#fafbff] dark:bg-[#060314] transition-colors duration-500 font-['Urbanist']">
@@ -76,11 +91,13 @@ const Footer = () => {
           
           {/* Brand Identity */}
           <div className="lg:col-span-4 lg:pr-10">
-            <img 
-              src="/assets/Screenshot_2026-03-14_160958-removebg-preview.png" 
-              alt="ZarWebCoders" 
-              className="h-10 w-auto object-contain dark:brightness-110 mb-6" 
-            />
+            <Link to="/">
+              <img 
+                src="/assets/Screenshot_2026-03-14_160958-removebg-preview.png" 
+                alt="ZarWebCoders" 
+                className="h-10 w-auto object-contain dark:brightness-110 mb-6" 
+              />
+            </Link>
             <p className="text-[#334155] dark:text-slate-300 font-bold leading-relaxed text-sm mb-8 italic border-l-2 border-purple-500/30 pl-4 py-1">
               "We architect mission-critical legacies that dominate the mainnet."
             </p>
@@ -113,7 +130,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {ecosystemLinks.map(link => (
                   <li key={link.name}>
-                    <FooterLink href={link.href} gradient={link.color}>{link.name}</FooterLink>
+                    <FooterLink to={link.href} onClick={(e) => handleNavClick(e, link)} gradient={link.color}>{link.name}</FooterLink>
                   </li>
                 ))}
               </ul>
@@ -199,14 +216,15 @@ const Footer = () => {
   );
 };
 
-const FooterLink = ({ href, children, gradient }) => (
-  <a
-    href={href}
+const FooterLink = ({ to, children, gradient, onClick }) => (
+  <Link
+    to={to}
+    onClick={onClick}
     className="text-[#334155] dark:text-slate-300 font-bold flex items-center gap-3 group hover:text-[#5b21f5] dark:hover:text-purple-400 transition-all duration-300 text-[13px]"
   >
     <div className={`w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-white/10 group-hover:w-4 transition-all duration-500 bg-gradient-to-r ${gradient}`} />
     <span className="group-hover:translate-x-1 transition-transform duration-300">{children}</span>
-  </a>
+  </Link>
 );
 
 export default Footer;
